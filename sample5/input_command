@@ -1,0 +1,28 @@
+set "map_2nd.txt" in map_analyzer.py
+
+
+
+#inputs for map_analyzer.py
+
+enter the upper bound of the x axis in the grid: 1090
+enter the upper bound of the y axis in the grid: 1123
+enter thE total numberof partition in the grid: 1090
+enter the threshold for disjoint lists: 2000
+enter the width of the obstacles or deviation in x-axis: 40
+enter the width of the obstacles or deviation in y axis: 20
+enter the lower bound of the obstacles from the map data: 71
+enter the upper bound of the obstacles from the map data:100
+
+
+#inputs for SMT_constraint_generator.py
+
+
+enter the max. velocity of the bot: 1000
+enter the upper bound of the x axis in the grid: 1090
+enter the upper bound of the y axis in the grid: 1123
+enter the padding length for obstacles block: 6
+enter the x co-ordinte of inital position of the bot: 100
+enter the y co-ordinate of initial position of the bot: 200
+enter the x co-ordinate of the goal position: 900
+enter the y co-ordinate of the goal position: 650
+
