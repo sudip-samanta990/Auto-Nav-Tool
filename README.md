@@ -1,7 +1,7 @@
-#Prerequisite
+# Prerequisite
 install z3 solver 
 
-##Description of Auto-Nav-Tool
+## Description of Auto-Nav-Tool
 
 i) generate a map-file by cartographer
 
