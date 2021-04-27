@@ -1,16 +1,27 @@
 # Prerequisite
-install z3 solver 
+1. ROS Environment
+2. Install Cartographer
+3. Install z3 solver 
 
-## Description of Auto-Nav-Tool
+## Description of AUTONAV
 
-i) generate a map-file by cartographer
+1. Generate a map-file using Cartographer
 
-ii) THen use map_analyzer to cover the obstacle points by rectangular block region and creat a obstacle lists.
-(Each line of the obstacle lists contains the range of the x and y axis for each block obstacles region)
+2. amcl package from ROS navigation is used for localization.
+   (example: roslaunch /pkg_path move_base_demo_amcl.launch )
 
-iii) Then use SMT_constraint_generator to solve and predict a feasible path from source to goal location.
+3. Run amcl_pose.py to store robot's pose.
 
-(Note: after doing step (ii) at once, we can use step iii) for several times to predict several feasible paths for different source and goal location using the same map)
+3. Run map_analyzer.py, it will take the map-file as input and produces a list of obstacles.
+(Each line of the obstacle lists contains the range of the x and y coordinates for each obstacle region)
 
-iv) To predict feasible path from source to goal location for different map, then use auto_nav.py
+4. SMT_constraint_generator generate the constraint file (SMT file).
+
+(Note: after doing step (2) at once, we can use step (3) for several times to predict several feasible paths for different source and goal location using the same map)
+
+5. SMT Solver: z3 is used to solve the SMT constraint file.
+
+### Use auto_nav.py (alternative)
+
+1. Use auto_nav.py for a readily available map-file.
 
