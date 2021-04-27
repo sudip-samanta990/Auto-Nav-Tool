@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+
+\file      move_base_demo.launch
+\authors   Sajid Sarwar <sajidsarwar2011@gmail.com>, Rajarshi Ray <raj.ray84@gmail.com>
+
+-->
+<launch>
+
+  <!-- Arguments -->
+  <param name="robot_description"
+    textfile="$(find my_navigation)/src/urdf/lizard.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="100.0" />
+  </node>
+
+
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="$(find my_navigation)/src/maps/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!--- Run AMCL -->
+  <include file="$(find my_navigation)/src/launch/amcl.launch" />
+
+
+  <!--- Run Move Base -->
+  <!--include file="$(find my_navigation)/src/launch/move_base1.launch">
+  <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include-->
+
+  <!-- Run rviz (my rviz configuration is ready)-->
+  <group if="$(arg open_rviz)"> 
+    <!--node pkg="rviz" type="rviz" name="rviz" required="true" /-->
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find my_navigation)/src/rviz/my_nav.rviz"/>
+  </group>
+
+  <!--node pkg="tf" type="static_transform_publisher" name="odom_broadcaster" args="0 0 0 0 0 0 1 map odom 100" /-->
+
+</launch>
