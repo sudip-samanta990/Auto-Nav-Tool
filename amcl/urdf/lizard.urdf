@@ -1,0 +1,146 @@
+<!--
+  Copyright 2016 The Cartographer Authors
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="lizard_robot">
+  <material name="orange">
+    <color rgba="1.0 0.5 0.2 1" />
+  </material>
+  <material name="gray">
+    <color rgba="0.2 0.2 0.2 1" />
+  </material>
+
+  <link name="base_link" >
+    <visual>
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
+      <geometry>
+        <box size="0.15 0.02 0.01" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link>
+
+  <link name="laser_link">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder length="0.007" radius="0.0075"/>
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link> 
+
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="laser_link" />
+    <origin rpy="0 0 0" xyz="0.05 0 0.06" />
+  </joint>
+
+  <joint name="FrontJoint" type="fixed">
+    <parent link="base_link" />
+    <child link="FrontLink" />
+    <origin xyz="0.07 0 0.04" rpy="0 0 0" />
+    <!--limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="0 0 1"/-->
+  </joint>
+
+ <link name="FrontLink" >
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <geometry>
+        <box size="0.02 0.1 0.01" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+ </link>
+
+  <!--link name="imu_link">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <material name="orange" />
+    </visual>
+  </link>
+
+  <joint name="imu_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <origin xyz="0 0 0.01" />
+  </joint-->
+
+  <!--link name="vertical_laser_link">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder length="1" radius="0.03"/>
+      </geometry>
+      <material name="gray" />
+    </visual>
+  </link-->
+
+  <!--joint name="vertical_laser_link_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="vertical_laser_link" />
+    <origin xyz="0 0.04 0.01" />
+  </joint>  
+
+ <link name="FrontLink" />
+
+  <joint name="FrontJoint" type="fixed">
+    <parent link="base_link" />
+    <child link="FrontLink" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+ <link name="leg1" />
+
+  <joint name="FrontLeftJoint" type="fixed">
+    <parent link="FrontLink" />
+    <child link="leg1" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+ <link name="leg2" />
+
+  <joint name="FrontRightJoint" type="fixed">
+    <parent link="FrontLink" />
+    <child link="leg2" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+ <link name="BackLink" />
+
+  <joint name="BackJoint" type="fixed">
+    <parent link="base_link" />
+    <child link="BackLink" />
+  </joint>
+
+ <link name="leg3" />
+
+  <joint name="BackLeftJoint" type="fixed">
+    <parent link="BackLink" />
+    <child link="leg3" />
+  </joint>
+
+ <link name="leg4" />
+
+  <joint name="BackRightJoint" type="fixed">
+    <parent link="BackLink" />
+    <child link="leg4" />
+  </joint-->
+
+</robot>
