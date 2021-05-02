@@ -1,0 +1,23 @@
+
+set "obstacles_lists_2nd_map.txt" in Edges_Generate.py
+
+#inputs for Edges_Generate.py
+
+enter the upper bound of the x axis in the grid: 1089
+enter the upper bound of the y axis in the grid: 1122
+enter the total numberof partition in the grid: 1090
+
+
+#inputs for Path_Find_A*.py
+
+set "obstacles_lists_2nd_map.txt" in Path_Find_A*.py
+
+set "pose_1.txt" in  Path_Find_A*.py to read starting position
+
+enter the upper bound of the x axis in the grid: 1089
+enter the upper bound of the y axis in the grid: 1122
+enter the resolution of the grid: 0.01
+enter the total numberof partition in the grid: 1090
+enter the x-cordinate of the Goal point: 900
+enter the y-cordinate of the Goal point: 150
+
